@@ -1,38 +1,100 @@
 .App {
+  width: 100%;
+}
+
+.Home_wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.Home {
+  margin: 0 50px;
+}
+
+.Logo {
+  width: 60px;
+  margin: 0 30px;
+}
+
+.Header_wrapper {
+  background-color: grey;
+}
+
+.Header {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.Navi {
+  display: flex;
+  margin: 0 30px;
+}
+
+.Navi h2 {
+  color: rgb(172, 172, 172);
+  margin: 0 auto;
+  padding: 15px 10px;
+}
+
+.Navi a {
+  color: rgb(172, 172, 172);
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: border-bottom 200ms ease;
+}
+
+.Navi a:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.Navi .Active {
+  color: black;
+}
+
+.NotLoggedIn {
+  margin: 80px 50px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Form_wrapper {
+  width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
+  padding-top: 30px;
+  width: 60%;
 }
 
-.App-link {
-  color: #61dafb;
+.Form label {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 10px;
+  opacity: 60%;
+  text-transform: uppercase;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Form input {
+  font-size: 16px;
+  height: 25px;
+  margin: 10px;
+}
+
+.Form button {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.Form button:hover {
+  cursor: pointer;
 }
