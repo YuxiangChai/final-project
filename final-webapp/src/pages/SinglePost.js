@@ -21,6 +21,7 @@ function SinglePost() {
       })
   }, []);
 
+  console.log('postData', postData);
   return (
     <div className='SinglePost_wrapper'>
       <div className='Return'>
@@ -28,8 +29,8 @@ function SinglePost() {
       </div>
       <div className='SinglePost'>
         <div className='Text'>
-          <p>{monthArray[postData.month]} {postData.date} &nbsp;&nbsp;{postData.time}</p>
-          <p>{postData.text}</p>
+          <h1>{monthArray[postData.month-1]} {postData.date} &nbsp;&nbsp;{postData.time}</h1>
+          {postData.text && <p>{postData.text.replace('<newline>', '\n\n')}</p>}
         </div>
         <div className='Image'>
           {postData.image === 'null' ? <div></div> : <img src={postData.image} alt='' />}

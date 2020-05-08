@@ -22,7 +22,7 @@ function Weather() {
 
   return (
     <div className='Weather'>
-      {weather.main && <h3>New York Weather: &nbsp;&nbsp;{weather.main.temp}&#176; &nbsp;&nbsp;{weather.weather[0].main}</h3>}
+      {weather.main && <h3>New York Weather: &nbsp;&nbsp;{weather.main.temp}&#176;C &nbsp;&nbsp;{weather.weather[0].main}</h3>}
     </div>
   )
 }

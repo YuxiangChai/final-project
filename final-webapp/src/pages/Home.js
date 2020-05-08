@@ -43,7 +43,7 @@ function Home({ userInformation }) {
       <div className='Home'>
         {allPosts && <PostNavi allPosts={userPosts}/>}
         <div className="Welcome">
-          <h1>Welcome! &nbsp;&nbsp;{name}</h1>
+          <h1>Welcome! &nbsp;&nbsp;{name.toUpperCase()}</h1>
           <h2>Today is {monthArray[month]} {day}</h2>
           <Weather />
         </div>

@@ -5,8 +5,8 @@ function PostNavi({ allPosts }) {
   allPosts.sort(function(a, b) {
     let aMonth = a.month;
     let bMonth = b.month;
-    let aDay = a.day;
-    let bDay = b.day;
+    let aDay = a.date;
+    let bDay = b.date;
     let aTime = a.time;
     let bTime = b.time;
 
@@ -16,9 +16,9 @@ function PostNavi({ allPosts }) {
       if (aDay !== bDay) {
         return (aDay < bDay) ? 1 : -1;
       } else {
-        let aHour = aTime.slice(0, 1);
+        let aHour = aTime.slice(0, 2);
         let aMinute = aTime.slice(-2);
-        let bHour = bTime.slice(0, 1);
+        let bHour = bTime.slice(0, 2);
         let bMinute = bTime.slice(-2);
         if (aHour !== bHour) {
           return (aHour < bHour) ? 1 : -1;
@@ -29,13 +29,14 @@ function PostNavi({ allPosts }) {
     }
   })
 
+  console.log(allPosts);
   return (
     <div className='PostNavi'>
       <div className='TopRow'>
         <a className='TopRowText' href={`/create`}>+ Create New Post</a>
       </div>
       {allPosts.map((post, i) => (
-        <a className='Row' href={`/post/${post.id}`} key={i}>{post.text} {post.author}</a>
+        <a className='Row' href={`/post/${post.id}`} key={i}>{post.text.replace('<newline>', '\n')}</a>
       ))}  
     </div>
   )

@@ -7,7 +7,7 @@ function Header({ LogoutFunction, isLoggedIn, userInformation }) {
       <header className='Header'>
         <img className='Logo' src={Logo} alt='' />
         <nav className='Navi'>
-          {isLoggedIn && <a className='Active' href='/'>Hi, {userInformation}</a>}
+          {isLoggedIn && <a className='Active' href='/'>Hi, {userInformation.toUpperCase()}</a>}
           {!isLoggedIn && <a href='/create-account'>Create Account</a>}
           <h2> | </h2>
           {!isLoggedIn && <a href='/login'>Login</a>}

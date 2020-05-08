@@ -15,7 +15,7 @@ function CreatePostForm({ userInformation }) {
     let storageRef = firebase.storage().ref();
     let fileReference = e.currentTarget.postImage.files[0];
 
-    let text = e.currentTarget.postText.value;
+    let text = e.currentTarget.postText.value.replace('\n', '<newline>');
     let idFromText = text.replace(/\s+/g, '-').toLowerCase().substr(0, 16);
     let userId = userInformation.uid;
     
@@ -77,7 +77,7 @@ function CreatePostForm({ userInformation }) {
 
   return (
     <div className='CreatePostForm_wrapper'>
-      <form className='Form CreatePostForm' onSubmit={(e) => CreatePostWithImage(e)} id='create_post_form'>
+      <form className='Form CreatePostForm' onSubmit={(e) => CreatePostWithImage(e)}>
         <label htmlFor='postText'>Text</label>
         <textarea name='postText' cols='40' row='5'></textarea>
 
