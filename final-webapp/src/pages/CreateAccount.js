@@ -4,8 +4,8 @@ import CreateAccountForm from '../components/CreateAccountForm';
 
 function CreateAccount({ CreateAccountFunction }) {
   return (
-    <div>
-      <h1>Create Account</h1>
+    <div className='Home_wrapper'>
+      <h1 className='Title'>Create Account</h1>
       <CreateAccountForm CreateAccountFunction={CreateAccountFunction}/>
     </div>
   );

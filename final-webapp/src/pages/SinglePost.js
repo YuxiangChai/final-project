@@ -5,7 +5,7 @@ import axios from 'axios';
 function SinglePost() {
   const [postData, setPostData] = useState({});
   const { id } = useParams();
-  console.log('id', id);
+  let monthArray = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   useEffect(() => {
     axios
@@ -22,8 +22,19 @@ function SinglePost() {
   }, []);
 
   return (
-    <div className='SinglePost'>
-      <h2>{postData.text}</h2>
+    <div className='SinglePost_wrapper'>
+      <div className='Return'>
+        <a href='/'>{'<'} Home</a>
+      </div>
+      <div className='SinglePost'>
+        <div className='Text'>
+          <p>{monthArray[postData.month]} {postData.date} &nbsp;&nbsp;{postData.time}</p>
+          <p>{postData.text}</p>
+        </div>
+        <div className='Image'>
+          {postData.image === 'null' ? <div></div> : <img src={postData.image} alt='' />}
+        </div>
+      </div>
     </div>
   )
 }

@@ -7,8 +7,34 @@
   margin: 0 auto;
 }
 
+.Title {
+  text-align: center;
+  margin-top: 50px;
+}
+
 .Home {
-  margin: 0 50px;
+  display: flex;
+  margin: 100px 60px;
+}
+
+.Welcome {
+  flex-basis: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Welcome h1 {
+  font-size: 40px;
+}
+
+.Welcome h2 {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.Welcome p {
+  font-size: 20px;
+  font-family: cursive;
 }
 
 .Logo {
@@ -65,7 +91,8 @@
 }
 
 .Form_wrapper {
-  width: 50%;
+  margin: 50px auto;
+  width: 500px;
 }
 
 .Form {
@@ -98,3 +125,105 @@
 .Form button:hover {
   cursor: pointer;
 }
+
+.PostNavi {
+  background-color: rgb(233, 233, 233);
+  border-left: solid 5px grey;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 250px;
+  min-height: 300px;
+  padding-bottom: 10px;
+}
+
+.PostNavi .Row {
+  color: rgb(107, 107, 107);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 20px 10px 30px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+
+.PostNavi .TopRow {
+  background-color: black;
+  height: 43px;
+  margin-bottom: 10px;
+}
+
+.Row:hover {
+  color: rgb(43, 43, 43);
+}
+
+.TopRowText {
+  color: white;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 10px 30px;
+  text-decoration: none;
+}
+
+.TopRowText:hover {
+  color: rgb(189, 189, 189);
+}
+
+.CreatePost_wrapper {
+  max-width: 1080px;
+  margin: 10px auto;
+}
+
+.CreatePostForm textarea {
+  font-size: 16px;
+  height: 100px;
+  margin: 10px;
+}
+
+.CreatePostForm button {
+  margin: 30px auto;
+  width: 30%;
+}
+
+.Return {
+  margin: 50px 0 30px 70px;
+}
+
+.Return a {
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.SinglePost_wrapper {
+  max-width: 1080px;
+  margin: 30px auto;
+}
+
+.SinglePost {
+  display: flex;
+  margin: 50px auto;
+  width: 80%;
+}
+
+.SinglePost .Text {
+  flex-basis: 40%;
+}
+
+.SinglePost .Text p {
+  color: rgb(87, 87, 87);
+  font-size: 20px;
+  margin: 50px 30px;
+}
+
+.SinglePost .Image {
+  flex-basis: 60%;
+}
+
+.SinglePost .Image img {
+  max-width: 100%;
+}
+

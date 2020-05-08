@@ -13,11 +13,12 @@ import CreateAccount from './pages/CreateAccount';
 import Header from './components/Header';
 import NotLoggedIn from './components/NotLoggedIn';
 import SinglePost from './pages/SinglePost';
+import CreatePost from './pages/CreatePost';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [userInformation, setUserInformation] = useState({})
+  const [userInformation, setUserInformation] = useState({});
   
   const firebaseConfig = {
     apiKey: "AIzaSyDJKesY43rTNyFmZqDU788MJsfrLAYe1FU",
@@ -102,37 +103,7 @@ function App() {
       });
   }
 
-  function createPostWithImage(e) {
-    e.preventDefault();
-    const storageRef = firebase.storage().ref();
-    const fileReference = e.currentTarget.postImage.files[0];
-    const uploadTask = storageRef
-      .child(`${fileReference.name}`)
-      .put(fileReference);
 
-    let text = e.currentTarget.postText.value;
-    let idFromText = text.replace(/\s+/g, '-').toLowerCase().substr(0, 16);
-    let userId = userInformation.uid;
-    
-    uploadTask.on(
-      'state_changed', 
-      (snapshot) => {}, 
-      (error) => {console.log(error)}, 
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-          axios
-            .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=${downloadURL}`)
-            .then(function (response) {
-              // handle success
-              console.log(response);
-            })
-            .catch(function (error) {
-              // handle error
-              console.log(error);
-            });
-        })
-      });
-  }
 
   if (loading) return null;
 
@@ -150,10 +121,13 @@ function App() {
       <Header LogoutFunction={LogoutFunction} isLoggedIn={loggedIn} userInformation={name}/>
       <Router>
         <Route exact path='/'>
-          {loggedIn ? <Home userInformation={userInformation} createPostWithImage={createPostWithImage} /> : <NotLoggedIn />}
+          {loggedIn ? <Home userInformation={userInformation} /> : <NotLoggedIn />}
         </Route>
         <Route exact path='/post/:id'>
           {loggedIn ? <SinglePost /> : <NotLoggedIn />}
+        </Route>
+        <Route exact path='/create'>
+          {loggedIn ? <CreatePost userInformation={userInformation} /> : <NotLoggedIn/>}
         </Route>
         <Route exact path='/login'>
           {!loggedIn ? <Login LoginFunction={LoginFunction}/> : <Redirect to='/' />}

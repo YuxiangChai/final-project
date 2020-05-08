@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import PostNavi from '../components/PostNavi';
-import CreatePostForm from '../components/CreatePostForm';
 
-function Home({ userInformation, createPostWithImage }) {
+function Home({ userInformation }) {
   var regex = /(.*)@/;
   var name;
 
@@ -30,14 +29,22 @@ function Home({ userInformation, createPostWithImage }) {
       })
   }, []);
 
-  console.log(allPosts)
+  let userPosts = allPosts.filter(post => post.userId === userInformation.uid);
+
+  let date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth();
+  let monthArray = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   return (
     <div className='Home_wrapper'>
       <div className='Home'>
-        <h1>Welcome! {name}</h1>
-        <CreatePostForm createPostFunction={createPostWithImage} />
-        {allPosts && <PostNavi allPosts={allPosts}/>}
+        {allPosts && <PostNavi allPosts={userPosts}/>}
+        <div className="Welcome">
+          <h1>Welcome! {name}</h1>
+          <h2>Today is {monthArray[month]} {day}</h2>
+          <p>Don't forget to record wonderful moments!</p>
+        </div>
       </div>
     </div>
   );
