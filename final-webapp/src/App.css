@@ -14,17 +14,21 @@
 
 .Home {
   display: flex;
-  margin: 100px 60px;
+  margin: 80px 60px;
 }
 
 .Welcome {
+  display: flex;
   flex-basis: 60%;
+  flex-direction: column;
   margin: 0 auto;
   text-align: center;
 }
 
 .Welcome h1 {
-  font-size: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 50px;
+  margin: 40px auto;
 }
 
 .Welcome h2 {
@@ -32,13 +36,14 @@
   font-weight: 200;
 }
 
-.Welcome p {
-  font-size: 20px;
+.Home_wrapper p {
+  font-size: 40px;
   font-family: cursive;
+  text-align: center;
 }
 
 .Logo {
-  width: 60px;
+  width: 80px;
   margin: 0 30px;
 }
 
@@ -86,8 +91,19 @@
 }
 
 .NotLoggedIn {
-  margin: 80px 50px;
+  margin: 30px auto;
   text-align: center;
+}
+
+.NotLoggedIn p{
+  font-family: cursive;
+  font-size: 40px;
+  margin-bottom: 60px;
+}
+
+.NotLoggedIn h1 {
+  font-size: 26px;
+  margin: 30px auto;
 }
 
 .Form_wrapper {
@@ -120,6 +136,11 @@
 .Form button {
   font-size: 16px;
   margin: 10px;
+}
+
+.Form a {
+  font-size: 13px;
+  text-align: center;
 }
 
 .Form button:hover {
@@ -227,3 +248,7 @@
   max-width: 100%;
 }
 
+.Weather h3 {
+  font-size: 18px;
+  font-weight: 100;
+}

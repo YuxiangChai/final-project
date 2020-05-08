@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import PostNavi from '../components/PostNavi';
+import Weather from '../components/Weather';
 
 function Home({ userInformation }) {
   var regex = /(.*)@/;
@@ -38,12 +39,13 @@ function Home({ userInformation }) {
 
   return (
     <div className='Home_wrapper'>
+      <p>Don't forget to record wonderful moments!</p>
       <div className='Home'>
         {allPosts && <PostNavi allPosts={userPosts}/>}
         <div className="Welcome">
-          <h1>Welcome! {name}</h1>
+          <h1>Welcome! &nbsp;&nbsp;{name}</h1>
           <h2>Today is {monthArray[month]} {day}</h2>
-          <p>Don't forget to record wonderful moments!</p>
+          <Weather />
         </div>
       </div>
     </div>

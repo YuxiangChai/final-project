@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../logo.svg';
+import Logo from '../components/Logo.png';
 
 function Header({ LogoutFunction, isLoggedIn, userInformation }) {
   return (
