@@ -46,8 +46,8 @@ function PostNavi({ allPosts, userName }) {
           <div className='Row' key={i}>
             <a className={post.userName === userName ? `UserPost` : `NotUserPost`} href={`/post/${post.id}`}>
               {post.userName === userName ? `👤` : ``}&nbsp;
-              {post.text.replace(/<newline>/g, '\n').substr(0, 15)} 
-              {post.text.replace(/<newline>/g, '\n').length > 15 ? `...` : ``}</a>
+              {post.text.replace(/<newline>/g, '\n').substr(0, 12)} 
+              {post.text.replace(/<newline>/g, '\n').length > 12 ? `...` : ``}</a>
           </div>
         ))}
       </div>
