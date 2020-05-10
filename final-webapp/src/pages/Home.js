@@ -30,7 +30,7 @@ function Home({ userInformation }) {
       })
   }, []);
 
-  let userPosts = allPosts.filter(post => post.userId === userInformation.uid);
+  // let userPosts = allPosts.filter(post => post.userId === userInformation.uid);
 
   let date = new Date();
   let day = date.getDate();
@@ -41,7 +41,7 @@ function Home({ userInformation }) {
     <div className='Home_wrapper'>
       <p>Don't forget to record wonderful moments!</p>
       <div className='Home'>
-        {allPosts && <PostNavi allPosts={userPosts}/>}
+        {allPosts && <PostNavi allPosts={allPosts} userName={name}/>}
         <div className="Welcome">
           <h1>Welcome! &nbsp;&nbsp;{name.toUpperCase()}</h1>
           <h2>Today is {monthArray[month]} {day}</h2>

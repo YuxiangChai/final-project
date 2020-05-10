@@ -9,6 +9,15 @@ function CreatePostForm({ userInformation }) {
   let month = date.getMonth()+1;
   let time = ('0'+date.getHours()).slice(-2) + ':' + ('0'+date.getMinutes()).slice(-2);
 
+  var regex = /(.*)@/;
+  var name;
+
+  if (userInformation.email){
+    name = regex.exec(userInformation.email)[1];
+  } else {
+    name = '';
+  }
+
   function CreatePostWithImage(e) {
     e.preventDefault();
     
@@ -31,7 +40,7 @@ function CreatePostForm({ userInformation }) {
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
             axios
-              .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=${downloadURL}&month=${month}&date=${day}&time=${time}`)
+              .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=${downloadURL}&month=${month}&date=${day}&time=${time}&userName=${name}`)
               .then(function (response) {
                 // handle success
                 console.log(response);
@@ -46,7 +55,7 @@ function CreatePostForm({ userInformation }) {
         });
     } else {
       axios
-        .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=null&month=${month}&date=${day}&time=${time}`)
+        .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=null&month=${month}&date=${day}&time=${time}&userName=${name}`)
         .then(function (response) {
           // handle success
           console.log(response);

@@ -161,30 +161,44 @@
   display: flex;
   flex-direction: column;
   flex-basis: 250px;
-  min-height: 300px;
+  height: 350px;
+  overflow-y: scroll;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .PostNavi .Row {
-  color: rgb(107, 107, 107);
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 20px 10px 30px;
-  text-decoration: none;
-  text-overflow: ellipsis;
+  padding: 10px 20px 10px 8px;
   width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
-.PostNavi .TopRow {
-  background-color: black;
-  height: 43px;
-  margin-bottom: 10px;
+.Row .NotUserPost {
+  color: rgb(107, 107, 107);
+  padding-left: 25px;
+  text-decoration: none;
 }
 
-.Row:hover {
+.Row .UserPost {
+  color: rgb(107, 107, 107);
+  text-decoration: none;
+}
+
+.NotUserPost:hover {
   color: rgb(43, 43, 43);
+}
+
+.UserPost:hover {
+  color: rgb(43, 43, 43);
+}
+
+.TopRow {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 43px;
+  justify-content: space-evenly;
 }
 
 .TopRowText {
@@ -192,7 +206,7 @@
   display: block;
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 0 10px 30px;
+  margin: auto;
   text-decoration: none;
 }
 

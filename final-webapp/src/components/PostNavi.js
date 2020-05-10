@@ -1,12 +1,12 @@
 import React from 'react';
 
-function PostNavi({ allPosts }) {
+function PostNavi({ allPosts, userName }) {
 
   allPosts.sort(function(a, b) {
-    let aMonth = a.month;
-    let bMonth = b.month;
-    let aDay = a.date;
-    let bDay = b.date;
+    let aMonth = parseInt(a.month);
+    let bMonth = parseInt(b.month);
+    let aDay = parseInt(a.date);
+    let bDay = parseInt(b.date);
     let aTime = a.time;
     let bTime = b.time;
 
@@ -16,10 +16,10 @@ function PostNavi({ allPosts }) {
       if (aDay !== bDay) {
         return (aDay < bDay) ? 1 : -1;
       } else {
-        let aHour = aTime.slice(0, 2);
-        let aMinute = aTime.slice(-2);
-        let bHour = bTime.slice(0, 2);
-        let bMinute = bTime.slice(-2);
+        let aHour = parseInt(aTime.slice(0, 2));
+        let aMinute = parseInt(aTime.slice(-2));
+        let bHour = parseInt(bTime.slice(0, 2));
+        let bMinute = parseInt(bTime.slice(-2));
         if (aHour !== bHour) {
           return (aHour < bHour) ? 1 : -1;
         } else {
@@ -31,13 +31,20 @@ function PostNavi({ allPosts }) {
 
   console.log(allPosts);
   return (
-    <div className='PostNavi'>
+    <div>
       <div className='TopRow'>
         <a className='TopRowText' href={`/create`}>+ Create New Post</a>
       </div>
-      {allPosts.map((post, i) => (
-        <a className='Row' href={`/post/${post.id}`} key={i}>{post.text.replace(/<newline>/g, '\n')}</a>
-      ))}  
+      <div  className='PostNavi'>
+        {allPosts.map((post, i) => (
+          <div className='Row' key={i}>
+            <a className={post.userName === userName ? `UserPost` : `NotUserPost`} href={`/post/${post.id}`}>
+              {post.userName === userName ? `👤` : ``}&nbsp;
+              {post.text.replace(/<newline>/g, '\n').substr(0, 15)} 
+              {post.text.replace(/<newline>/g, '\n').length > 15 ? `...` : ``}</a>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
