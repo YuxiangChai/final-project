@@ -17,13 +17,19 @@ function PostNavi({ allPosts, userName }) {
         return (aDay < bDay) ? 1 : -1;
       } else {
         let aHour = parseInt(aTime.slice(0, 2));
-        let aMinute = parseInt(aTime.slice(-2));
+        let aMinute = parseInt(aTime.slice(3, 5));
+        let aSecond = parseInt(aTime.slice(-2));
         let bHour = parseInt(bTime.slice(0, 2));
-        let bMinute = parseInt(bTime.slice(-2));
+        let bMinute = parseInt(bTime.slice(3, 5));
+        let bSecond = parseInt(bTime.slice(-2));
         if (aHour !== bHour) {
           return (aHour < bHour) ? 1 : -1;
         } else {
-          return (aMinute < bMinute) ? 1 : -1;
+          if (aMinute !== bMinute) {
+            return (aMinute < bMinute) ? 1 : -1;
+          } else {
+            return (aSecond < bSecond) ? 1 : -1;
+          }
         }
       }
     }

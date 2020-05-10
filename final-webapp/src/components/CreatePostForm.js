@@ -7,7 +7,7 @@ function CreatePostForm({ userInformation }) {
   let date = new Date();
   let day = date.getDate();
   let month = date.getMonth()+1;
-  let time = ('0'+date.getHours()).slice(-2) + ':' + ('0'+date.getMinutes()).slice(-2);
+  let time = ('0'+date.getHours()).slice(-2) + ':' + ('0'+date.getMinutes()).slice(-2) + ':' + ('0'+date.getSeconds()).slice(-2);
 
   var regex = /(.*)@/;
   var name;
