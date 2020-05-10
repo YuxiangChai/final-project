@@ -75,15 +75,18 @@ function App() {
   }
 
   function LogoutFunction() {
-    firebase
-      .auth()
-      .signOut()
-      .then(function () {
-        setLoggedIn(false);
-      })
-      .catch(function(e) {
-        console.log('Logout Error:', e);
-      })
+    let confirm = window.confirm('Are you sure?');
+    if (confirm) {
+      firebase
+        .auth()
+        .signOut()
+        .then(function () {
+          setLoggedIn(false);
+        })
+        .catch(function(e) {
+          console.log('Logout Error:', e);
+        })
+    }
   }
 
   function CreateAccountFunction(e) {
