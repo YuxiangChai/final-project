@@ -15,10 +15,10 @@ function CreatePostForm({ userInformation }) {
     let storageRef = firebase.storage().ref();
     let fileReference = e.currentTarget.postImage.files[0];
 
-    let text = e.currentTarget.postText.value.replace('\n', '<newline>');
+    let text = e.currentTarget.postText.value.replace(/\n/g, '<newline>');
     let idFromText = text.replace(/\s+/g, '-').toLowerCase().substr(0, 16);
     let userId = userInformation.uid;
-    
+
     if (fileReference) {
       const uploadTask = storageRef
         .child(`${fileReference.name}`)

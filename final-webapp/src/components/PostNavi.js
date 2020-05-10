@@ -36,7 +36,7 @@ function PostNavi({ allPosts }) {
         <a className='TopRowText' href={`/create`}>+ Create New Post</a>
       </div>
       {allPosts.map((post, i) => (
-        <a className='Row' href={`/post/${post.id}`} key={i}>{post.text.replace('<newline>', '\n')}</a>
+        <a className='Row' href={`/post/${post.id}`} key={i}>{post.text.replace(/<newline>/g, '\n')}</a>
       ))}  
     </div>
   )

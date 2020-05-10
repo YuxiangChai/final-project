@@ -30,7 +30,7 @@ function SinglePost() {
       <div className='SinglePost'>
         <div className='Text'>
           <h1>{monthArray[postData.month-1]} {postData.date} &nbsp;&nbsp;{postData.time}</h1>
-          {postData.text && <p>{postData.text.replace('<newline>', '\n\n')}</p>}
+          {postData.text && <p>{postData.text.replace(/<newline>/g, '\n\n')}</p>}
         </div>
         <div className='Image'>
           {postData.image === 'null' ? <div></div> : <img src={postData.image} alt='' />}
