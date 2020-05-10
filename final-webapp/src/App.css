@@ -162,7 +162,7 @@
   flex-direction: column;
   flex-basis: 250px;
   height: 350px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 250px;
