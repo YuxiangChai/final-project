@@ -69,6 +69,8 @@ function App() {
       })
       .catch(function(e) {
         console.log('LOGIN ERROR', e);
+        window.alert('Login Failed. Your email or password is incorrect.');
+        window.location.href = '/login';
       });
   }
 
