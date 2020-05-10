@@ -276,6 +276,14 @@
   margin: 40px 30px;
 }
 
+.SinglePost .Text h2 {
+  color: rgb(0, 0, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 40px 30px;
+}
+
 .SinglePost .Image {
   width: 60%;
   margin: 20px auto;

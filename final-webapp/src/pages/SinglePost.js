@@ -29,9 +29,9 @@ function SinglePost() {
       </div>
       <div className='SinglePost'>
         <div className='Text'>
-          <h1>{monthArray[postData.month-1]} {postData.date} &nbsp;&nbsp;{postData.time}</h1>
-          <h1>Author: &nbsp;&nbsp;&nbsp;{postData.userName}</h1>
-          {postData.text && <p>{postData.text.replace(/<newline>/g, '\n\n')}</p>}
+          <h1>{monthArray[postData.month-1]} {postData.date} &nbsp;&nbsp;{postData.time} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author: &nbsp;&nbsp;&nbsp;{postData.userName}</h1>
+          {postData.title && <h2>{postData.title}</h2>}
+          {postData.text && <p>{postData.text.replace(/(<newline>)+/g, '\n\n')}</p>}
         </div>
         <div className='Image'>
           {postData.image === 'null' ? <div></div> : <img src={postData.image} alt='' />}

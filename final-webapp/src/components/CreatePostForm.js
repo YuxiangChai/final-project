@@ -25,6 +25,7 @@ function CreatePostForm({ userInformation }) {
     let fileReference = e.currentTarget.postImage.files[0];
 
     let text = e.currentTarget.postText.value.replace(/\n/g, '<newline>');
+    let title = e.currentTarget.postTitle.value;
     let idFromText = text.replace(/\s+/g, '-').toLowerCase().substr(0, 16);
     let userId = userInformation.uid;
 
@@ -40,7 +41,7 @@ function CreatePostForm({ userInformation }) {
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
             axios
-              .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=${downloadURL}&month=${month}&date=${day}&time=${time}&userName=${name}`)
+              .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=${downloadURL}&month=${month}&date=${day}&time=${time}&userName=${name}&title=${title}`)
               .then(function (response) {
                 // handle success
                 console.log(response);
@@ -55,7 +56,7 @@ function CreatePostForm({ userInformation }) {
         });
     } else {
       axios
-        .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=null&month=${month}&date=${day}&time=${time}&userName=${name}`)
+        .get(`https://immense-depths-02101.herokuapp.com/create?text=${text}&id=${idFromText}&userId=${userId}&image=null&month=${month}&date=${day}&time=${time}&userName=${name}&title=${title}`)
         .then(function (response) {
           // handle success
           console.log(response);
@@ -87,8 +88,11 @@ function CreatePostForm({ userInformation }) {
   return (
     <div className='CreatePostForm_wrapper'>
       <form className='Form CreatePostForm' onSubmit={(e) => CreatePostWithImage(e)}>
+        <label htmlFor='postTitle'>Title (optional)</label>
+        <input type='text' name='postTitle' />
+
         <label htmlFor='postText'>Text</label>
-        <textarea name='postText' cols='40' row='5'></textarea>
+        <textarea name='postText' cols='40' row='5' required></textarea>
 
         <label htmlFor='postImage'>Image</label>
         <input type='file' name='postImage' accept='image/*' />
